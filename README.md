@@ -26,15 +26,13 @@ has four ouputs:
   N_category_dist =  N_category_max by 3 matrix:
   
     col 1: integers from 1 to N_category_max
-    
     col 2: PDF of N_category
-    
     col 3: (1 - CDF) of N_category
     
   avg = expectation value of N_category (=NaN if non-existent)
   
   variance = variance of N_category (=NaN if non-existent)
   
-  flag = 0, posterior is normalized (on [1,Inf) )
-  
-       = 1, posterior is non-normalizable
+  flag 
+    = 0, posterior is normalized (on [1,Inf) )
+    = 1, posterior is non-normalizable
