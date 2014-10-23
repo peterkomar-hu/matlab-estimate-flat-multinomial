@@ -1,34 +1,23 @@
 matlab-estimate-flat-multinomial
 ================================
 
-This is a Matlab function that estimates the number of categories of a multinomial distribution
-
-Estimates the number of categories of a uniform multinomial distribution
+This is a Matlab function that estimates the number of categories (N_category) of a flat multinomial distribution
+  P(n_1, n_2, ... n_k) = [n! / (n_1! * n_2! * ... * n_k!)] * (1/k)^n
+from a uniform prior and number of trials (N_trial) and number of different outcomes (N_different)
 
 ESTIMATEFLATMULTINOMIAL(N_trial, N_different, [N_category_max])
-  solves the Bayesian estimation problem of a uniform multinomial
-  distribution of unknown dimension (i.e. number of categories, N_category)
-  using the number of trials (N_trial) and the number of different
-  outcomes (N_different) as input. Assumes a flat prior for N_category.
+has two mandatory input arguments:
+  N_trial (positive integer)
+  N_different (positive integer, <= N_trial)
+and one optional input argument:
+  N_category_max (positive integer, >= N_different)
 
-  The sampling distribution is 
-      P(n_1, n_2, ... n_k) = [n! / (n_1! * n_2! * ... * n_k!)] * (1/k)^n
-          where                       
-          k  = N_category
-          n  = sum(n_j) = N_trial
-          n_j = the number of outcomes from category j
-          sum( sgn(n_j) ) = N_different
-  
-  The posterior distribution is
-      P(N_category = k) = A * k^(-n) * k! / ((k - N_different)!)
-          where A is a normalization constant
-
-  [N_category_dist, avg, variance, flag] = ESTIMATEFLATMULTINOMIAL 
-      has four ouputs:
+[N_category_dist, avg, variance, flag] = ESTIMATEFLATMULTINOMIAL 
+has four ouputs:
   N_category_dist =  N_category_max by 3 matrix:
-      col 1: integers from 1 to N_category_max
-      col 2: PDF of N_category
-      col 3: (1 - CDF) of N_category
+    col 1: integers from 1 to N_category_max
+    col 2: PDF of N_category
+    col 3: (1 - CDF) of N_category
   avg = expectation value of N_category (=NaN if non-existent)
   variance = variance of N_category (=NaN if non-existent)
   flag = 0, posterior is normalized (on [1,Inf) )
