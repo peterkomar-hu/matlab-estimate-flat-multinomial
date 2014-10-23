@@ -34,5 +34,6 @@ has four ouputs:
   variance = variance of N_category (=NaN if non-existent)
   
   flag 
+  
     = 0, posterior is normalized (on [1,Inf) )
     = 1, posterior is non-normalizable
