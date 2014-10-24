@@ -1,6 +1,9 @@
 matlab-estimate-flat-multinomial
 ================================
 
+Motivation and theoretical background is detailed in this note: 
+http://users.physics.harvard.edu/~komar/articles/EstimateMultinomial.pdf
+
 This is a Matlab function that estimates the number of categories (N_category) of a flat multinomial distribution
 
     P(n_1, n_2, ... n_{N_category}) = [n! / (n_1! * n_2! * ... * n_{N_category}!)] * (1/N_category)^n
